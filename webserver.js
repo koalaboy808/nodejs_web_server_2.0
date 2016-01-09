@@ -7,16 +7,18 @@ var PORT = process.env.PORT || 3000;
 // 	res.send("express world");
 // });
 
-var middleware = {
-	requireAuthentication: function (req, res, next) {
-		console.log('private route hit');
-		next();
-	},
-	logger: function(req, res, next) {
-		console.log('this is the req.method/urloriginal output: ' + Date() + " " + req.method + " " + req.originalUrl);
-		next();
-	}
-};
+// var middleware = {
+// 	requireAuthentication: function (req, res, next) {
+// 		console.log('private route hit');
+// 		next();
+// 	},
+// 	logger: function(req, res, next) {
+// 		console.log('this is the req.method/urloriginal output: ' + Date() + " " + req.method + " " + req.originalUrl);
+// 		next();
+// 	}
+// };
+
+var middleware = require('./middleware.js')
 
 app.use(middleware.logger);
 
